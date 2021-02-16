@@ -35,7 +35,7 @@ class Listener(StreamListener):
             user = all_data["user"]["id"]
             user_id = all_data["user"]["screen_name"]
             tweet_id = all_data["id_str"]
-            if not text.startswith("RT") and str(user) == "2324847996":
+            if not text.startswith("RT") and str(user) == "1212980158635732992":
                 tweet = "https://twitter.com/" + user_id + "/status/" + tweet_id
                 req = self.ENDPOINT.format(config.TELEGRAM_BOT_API_KEY, config.TELEGRAM_CHANNEL_NAME, tweet)
                 requests.get(req)
