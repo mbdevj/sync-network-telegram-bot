@@ -28,7 +28,4 @@ if __name__ == '__main__':
     auth.set_access_token(config.ACCESS_TOKEN, config.ACCESS_TOKEN_SECRET)
     stream = Stream(auth, listener)
 
-    stream.filter(follow=['1212980158635732992'])  # bot
-    # stream.filter(follow=['2324847996'])  # mine
-
-# 2324847996
+    stream.filter(follow=['1212980158635732992'])

@@ -32,26 +32,25 @@ class Listener(StreamListener):
         print(all_data)
         try:
             text = all_data['text']
+            user = all_data["user"]["id"]
             user_id = all_data["user"]["screen_name"]
             tweet_id = all_data["id_str"]
-            if not text.startswith("RT"):
-                tweet =  "https://twitter.com/" + user_id + "/status/" + tweet_id
+            if not text.startswith("RT") and str(user) == "2324847996":
+                tweet = "https://twitter.com/" + user_id + "/status/" + tweet_id
                 req = self.ENDPOINT.format(config.TELEGRAM_BOT_API_KEY, config.TELEGRAM_CHANNEL_NAME, tweet)
                 requests.get(req)
         except:
             pass
 
-
         return True
 
     def on_disconnect(self, notice):
-        """Called when twitter sends a disconnect notice
+        # Print timeout message
+        print(stderr, "Disconnect...")
 
-        Disconnect codes are listed here:
-        https://dev.twitter.com/docs/streaming-apis/messages#Disconnect_messages_disconnect
-        """
+        # Wait 10 seconds
+        time.sleep(10)
         return
-
 
     def on_timeout(self):
         # Print timeout message
@@ -62,7 +61,6 @@ class Listener(StreamListener):
 
         # Return nothing
         return
-
 
     def on_error(self, status):
         print ('error with status code' + str(status))
