@@ -49,7 +49,7 @@ class Listener(StreamListener):
         print(stderr, "Disconnect...")
 
         # Wait 10 seconds
-        time.sleep(10)
+        time.sleep(30)
         return
 
     def on_timeout(self):
@@ -57,7 +57,7 @@ class Listener(StreamListener):
         print(stderr, "Timeout...")
 
         # Wait 10 seconds
-        time.sleep(10)
+        time.sleep(30)
 
         # Return nothing
         return
