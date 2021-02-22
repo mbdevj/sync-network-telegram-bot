@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 while true;do
 	pid=$(ps -ef | grep run.py | grep -v grep | awk '{print $2}')
